@@ -10,6 +10,26 @@ The Auto-Director turns a short seed idea into a cinematic storyboard with:
 
 The frontend is a Next.js app in [`/frontend`](/E:/auto-director/frontend) that uses Gemini for storyboard generation and Unsplash for visual references by default.
 
+## Why This Project Feels Different
+
+The Auto-Director is not just a text generator.
+
+It is unique because it takes one small idea and turns it into something that already feels like a film planning board:
+
+- it breaks the story into acts, scenes, and shots automatically
+- it gives each shot a camera-style framing
+- it pairs each shot with a visual reference
+- it shows the result in a storyboard-style layout instead of a plain text response
+
+In easy language: you type one idea, and the app helps you see the movie in your head faster.
+
+This makes it useful for:
+
+- filmmakers planning scenes
+- creators exploring story ideas
+- students learning visual storytelling
+- anyone who wants inspiration without starting from a blank page
+
 ## What It Does
 
 You enter a prompt like:
@@ -28,6 +48,23 @@ The app responds with a structured storyboard containing:
 
 Each scene displays its shots together in one row on large screens, so it reads more like a storyboard strip than a stacked document.
 
+## Example Prompts For The Dashboard
+
+You can paste prompts like these directly into the dashboard:
+
+- A futuristic heist in a high security vault.
+- A lonely astronaut finds a garden growing inside a broken space station.
+- A detective investigates a murder during a citywide blackout.
+- A young inventor builds a machine that lets her hear memories.
+- A village on the edge of the sea prepares for a storm that comes alive.
+
+
+Example:
+
+```text
+A tired smuggler must deliver a mysterious glowing suitcase across a rainy neon city before sunrise.
+```
+
 ## Tech Stack
 
 - Next.js 16
@@ -36,7 +73,6 @@ Each scene displays its shots together in one row on large screens, so it reads 
 - Tailwind CSS 4
 - Google Gemini via `@google/genai`
 - Unsplash Search API
-- Optional Hugging Face image generation fallback/provider mode
 
 ## Project Structure
 
@@ -91,11 +127,6 @@ Supported values:
 `GEMINI_MODEL`
 Optional. Defaults to `gemini-2.5-flash`.
 
-`HF_API_KEY`
-Optional unless you intentionally switch away from Unsplash-based images.
-
-`HF_IMAGE_MODEL`
-Optional. Defaults to `stabilityai/stable-diffusion-xl-base-1.0`.
 
 ## Running Locally
 
@@ -107,6 +138,34 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+## Deploying On Vercel
+
+This project is ready to deploy on Vercel.
+
+Steps:
+
+1. Push the code to GitHub, GitLab, or Bitbucket.
+2. Open Vercel and import the repository.
+3. Set the project `Root Directory` to `frontend`.
+4. Let Vercel detect the framework as `Next.js`.
+5. Add the required environment variables in Vercel:
+
+```env
+GEMINI_API_KEY=your_gemini_api_key
+UNSPLASH_ACCESS_KEY=your_unsplash_access_key
+IMAGE_PROVIDER=unsplash
+GEMINI_MODEL=gemini-2.5-flash
+```
+
+6. Click `Deploy`.
+7. After deployment, test storyboard generation and image loading on the live URL.
+
+Important:
+
+- do not use `NEXT_PUBLIC_` for secret API keys
+- keep the root directory as `frontend`
+- redeploy if you change environment variables
 
 ## Available Scripts
 
@@ -158,6 +217,4 @@ This keeps the UI usable even when a very specific shot has no close photo match
 
 - add prompt history or saved storyboard sessions
 - export storyboard to PDF or shot list
-- support multiple image sources with ranking
-- add per-shot refresh/regenerate controls
-- improve mobile storyboard navigation between scenes and acts
+
