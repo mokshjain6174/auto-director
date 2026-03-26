@@ -13,9 +13,9 @@ Auto-Director is a creative AI-powered tool that takes a short seed idea and tra
 
 ## 📸 Demo Preview
 
-![Preview 1](./1.png)
+![Preview 1](./frontend/1.png)
 
-![Preview 2](./2.png)
+![Preview 2](./frontend/2.png)
 
 The frontend is a Next.js app in [`/frontend`](/E:/auto-director/frontend) that uses Gemini for storyboard generation and Unsplash for visual references by default.
 
