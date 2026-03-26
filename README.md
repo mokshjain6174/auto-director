@@ -15,7 +15,7 @@ The frontend is a Next.js app in [`/frontend`](/E:/auto-director/frontend) that 
 You enter a prompt like:
 
 ```text
-A futuristic heist in a high-security vault.
+A futuristic heist in a high security vault.
 ```
 
 The app responds with a structured storyboard containing:

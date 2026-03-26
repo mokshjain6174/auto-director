@@ -26,6 +26,103 @@ type Storyboard = {
   acts?: Act[];
 };
 
+function DashboardLoading() {
+  return (
+    <div className="relative overflow-hidden rounded-[2rem] border border-neutral-800 bg-gradient-to-br from-neutral-950 via-neutral-925 to-neutral-900 p-6 shadow-2xl">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.16),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(250,204,21,0.08),_transparent_24%)]" />
+
+      <div className="relative space-y-6">
+        <div className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-black/20 p-5 backdrop-blur-sm md:flex-row md:items-center md:justify-between">
+          <div className="space-y-3">
+            <div className="h-3 w-24 rounded-full bg-blue-400/70" />
+            <div className="h-8 w-64 rounded-full bg-white/12" />
+            <div className="h-4 w-80 max-w-full rounded-full bg-white/8" />
+          </div>
+          <div className="grid grid-cols-3 gap-3">
+            {['Act I', 'Act II', 'Act III'].map((label) => (
+              <div key={label} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center">
+                <div className="text-xs uppercase tracking-[0.35em] text-neutral-500">{label}</div>
+                <div className="mt-2 h-2 rounded-full bg-white/10" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-6 xl:grid-cols-[240px_minmax(0,1fr)]">
+          <div className="rounded-2xl border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
+            <div className="mb-4 flex items-center justify-between">
+              <div className="text-xs uppercase tracking-[0.35em] text-neutral-500">Pipeline</div>
+              <div className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(74,222,128,0.8)]" />
+            </div>
+            <div className="space-y-4">
+              {[
+                'Breaking story into acts',
+                'Designing scene progression',
+                'Sourcing visual references',
+              ].map((step, index) => (
+                <div key={step} className="rounded-xl border border-white/8 bg-white/5 p-3">
+                  <div className="flex items-center gap-3">
+                    <div className={`h-8 w-8 rounded-full border text-sm font-semibold ${
+                      index === 2
+                        ? 'border-blue-400/60 bg-blue-500/20 text-blue-200'
+                        : 'border-white/10 bg-white/5 text-neutral-300'
+                    } flex items-center justify-center`}>
+                      {index + 1}
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium text-neutral-200">{step}</div>
+                      <div className="text-xs text-neutral-500">
+                        {index === 2 ? 'In progress' : 'Queued'}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-5 rounded-2xl border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-xs uppercase tracking-[0.35em] text-neutral-500">Live Storyboard</div>
+                <div className="mt-2 h-6 w-56 rounded-full bg-white/10" />
+              </div>
+              <div className="rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-200">
+                Drafting visual beats
+              </div>
+            </div>
+
+            {[1, 2].map((scene) => (
+              <div key={scene} className="space-y-4 rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                <div className="flex items-center justify-between">
+                  <div className="h-5 w-40 rounded-full bg-white/10" />
+                  <div className="h-4 w-24 rounded-full bg-white/5" />
+                </div>
+                <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                  {[1, 2, 3].map((shot) => (
+                    <div key={shot} className="overflow-hidden rounded-2xl border border-white/8 bg-neutral-950/80">
+                      <div className="aspect-video bg-[linear-gradient(135deg,rgba(59,130,246,0.18),rgba(255,255,255,0.04),rgba(250,204,21,0.12))] animate-pulse" />
+                      <div className="space-y-3 p-4">
+                        <div className="flex items-center justify-between">
+                          <div className="h-6 w-20 rounded-full bg-blue-500/20" />
+                          <div className="h-3 w-16 rounded-full bg-white/8" />
+                        </div>
+                        <div className="h-4 w-full rounded-full bg-white/8" />
+                        <div className="h-4 w-5/6 rounded-full bg-white/6" />
+                        <div className="h-3 w-3/4 rounded-full bg-white/5" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 type ImagePayload = {
   imageBase64?: string;
   imageUrl?: string;
@@ -204,7 +301,11 @@ export default function Home() {
       </div>
 
       <div className="w-full max-w-3xl">
-        {loading && <div className="py-20 text-center animate-pulse text-blue-400 text-xl font-semibold">Agents 1 & 2 outlining narrative...</div>}
+        {loading && (
+          <div className="animate-in fade-in duration-500">
+            <DashboardLoading />
+          </div>
+        )}
 
         {storyboardData && (
           <div className="space-y-16 animate-in fade-in duration-700">
