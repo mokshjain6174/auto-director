@@ -1,17 +1,28 @@
-# The Auto-Director
+#  The Auto-Director
 
-The Auto-Director turns a short seed idea into a cinematic storyboard with:
+### Turn a single idea into a complete cinematic storyboard.
 
-- a generated title
-- 3 acts
-- 3 scenes per act
-- 3 shots per scene
-- a visual reference for each shot
+Auto-Director is a creative AI-powered tool that takes a short seed idea and transforms it into a structured film-style storyboard with acts, scenes, shots, and visual references.
+# 🚀 Features
+- 🎥 Automatically generates a movie-style title
+- 🧩 Structured into 3 Acts → 3 Scenes → 3 Shots
+- 🎬 Includes cinematic shot framing
+- 🖼️ Adds visual references for every shot
+- ⚡ Fast AI-powered generation
+- 📊 Clean storyboard-style UI (not plain text) a visual reference for each shot
+
+## 📸 Demo Preview
+
+![Preview 1](./1.png)
+
+![Preview 2](./2.png)
 
 The frontend is a Next.js app in [`/frontend`](/E:/auto-director/frontend) that uses Gemini for storyboard generation and Unsplash for visual references by default.
 
-Deployment Link:[https://auto-director-1pcs2h7y8-moksh-jains-projects-71607069.vercel.app/](https://auto-director-1pcs2h7y8-moksh-jains-projects-71607069.vercel.app/)
-## Why This Project Feels Different
+Deployment Link:[https://auto-director-git-main-moksh-jains-projects-71607069.vercel.app/](https://auto-director-git-main-moksh-jains-projects-71607069.vercel.app/)
+
+DEMO VIDEO: [https://drive.google.com/file/d/17eTdMeyH13srGY_L0ZBTq9s9KuXfKd72/view?usp=sharing](https://drive.google.com/file/d/17eTdMeyH13srGY_L0ZBTq9s9KuXfKd72/view?usp=sharing)
+## 💡Why This Project Feels Different
 
 The Auto-Director is not just a text generator.
 
@@ -189,20 +200,11 @@ Flow:
 
 This keeps the UI usable even when a very specific shot has no close photo match.
 
-## Current API Routes
-
-`POST /api/generate`
-
-- input: `{ "prompt": "..." }`
-- output: storyboard JSON with title, acts, scenes, and shots
-
-`POST /api/image`
-
-- input: `{ "prompt": "..." }`
-- output:
-  - Unsplash image metadata and URL, or
-  - generated image data, or
-  - a placeholder fallback image
+## 🎯 Use Cases
+- 🎬 Filmmakers planning scenes
+- ✍️ Content creators exploring ideas
+- 🎓 Students learning storytelling
+- 💡 Anyone needing creative inspiration
 
 ## Notes
 
@@ -215,4 +217,6 @@ This keeps the UI usable even when a very specific shot has no close photo match
 
 - add prompt history or saved storyboard sessions
 - export storyboard to PDF or shot list
+
+## Author: Moksh Jain
 
