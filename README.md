@@ -10,6 +10,7 @@ The Auto-Director turns a short seed idea into a cinematic storyboard with:
 
 The frontend is a Next.js app in [`/frontend`](/E:/auto-director/frontend) that uses Gemini for storyboard generation and Unsplash for visual references by default.
 
+Deployment Link:[https://auto-director-1pcs2h7y8-moksh-jains-projects-71607069.vercel.app/](https://auto-director-1pcs2h7y8-moksh-jains-projects-71607069.vercel.app/)
 ## Why This Project Feels Different
 
 The Auto-Director is not just a text generator.
