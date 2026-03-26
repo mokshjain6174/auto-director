@@ -116,9 +116,6 @@ Required. Used by `/api/generate` to create the storyboard JSON.
 `UNSPLASH_ACCESS_KEY`
 Required when `IMAGE_PROVIDER=unsplash`. Used by `/api/image` to search reference photos.
 
-`IMAGE_PROVIDER`
-Optional. Defaults to `unsplash`.
-
 Supported values:
 
 - `unsplash` for photo-based visual references
